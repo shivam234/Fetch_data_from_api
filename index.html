@@ -1,0 +1,30 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<div id='data'>
+<div>
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+        $.ajax({
+            type: "GET",
+            url: "https://tecnotree-7.0x10.info/api/tecnotree?type=json&query=list_feed",
+            dataType: "html",
+            success: function(result){
+			  //$("body").append(JSON.stringify(result))},
+			  Random(JSON.parse(result));}
+        });
+		
+});
+    function Random(result) {
+	var feeds=result.feed;
+	var result="";
+	for(i=0;i<feeds.length;i++)
+	{
+	 result+=("<br>"+feeds[i].feed_url);
+	
+	}
+	$("#data").html(result);
+    }
+</script>    
